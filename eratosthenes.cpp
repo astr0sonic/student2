@@ -13,6 +13,7 @@ void reshetoEratosphena(int n, bool*& t) {
 vector<int> sieve(int n) {
 	vector<int> primes;
 	bool* t = new bool[n - 1];
+	int i;
 	for (i = 0; i < n - 1; i++)
 		t[i] = true;
 	reshetoEratosphena(n - 1, t);
