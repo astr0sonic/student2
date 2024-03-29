@@ -1,5 +1,6 @@
 #include "sundaram.h"
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
