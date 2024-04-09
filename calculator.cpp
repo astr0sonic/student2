@@ -110,8 +110,9 @@ bool checkExpression(stringstream& f, stringstream& s) {
 		}
 		else
 		{
-			f >> x;
 			switch (x) {
+			case ' ':
+				break;
 			case '+':
 			case '*':
 			case '/':
@@ -154,6 +155,7 @@ bool checkExpression(stringstream& f, stringstream& s) {
 			default:
 				return false;
 			}
+			f.get();
 		}
 	}
 	while (!st.empty()) {
