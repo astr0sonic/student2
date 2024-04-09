@@ -1,4 +1,7 @@
 #include "rpn.h"
+#include <stack>
+#include <cmath>
+
 
 using namespace std;
 
