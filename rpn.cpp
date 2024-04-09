@@ -1,7 +1,7 @@
 #include "rpn.h"
 #include <stack>
 #include <cmath>
-
+#include <sstream>
 
 using namespace std;
 
