@@ -167,7 +167,7 @@ bool checkExpression(stringstream& f, stringstream& s) {
 }
 
 double calculate(const std::string& expr) {
-	stringstream& s;
+	stringstream s;
 	stringstream str(expr);
 	if (checkExpression(str, s))
 		return evaulateExpression(s);
