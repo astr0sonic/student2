@@ -67,6 +67,6 @@ double evaulateExpression(stringstream& s) {
 }
 
 double calculateRPN(const std::string& expr) {
-	stringstream str(s);
+	stringstream str(expr);
 	return evaulateExpression(str);
 }
