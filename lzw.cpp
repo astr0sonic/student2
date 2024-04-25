@@ -20,12 +20,6 @@ vector<int> LZWcompress(const string& text) {
 			bufer = { text[i] };
 		}
 	}
-	//for (auto f : dict) {
-	//	if (f.second == 265)
-	//		cout << f.first << " " << f.second << endl;
-	//}
-	/*cout << bufer << endl;
-	cout << bufer + string(1, text[text.size() - 1]) << endl;*/
 	v.push_back(dict[bufer]);
 	return v;
 }
@@ -39,11 +33,10 @@ string LZWdecompress(const vector<int>& v) {
 	string curStr = "";
 	string prevStr = dict[v[0]];
 	for (int i = 1; i < v.size(); i++) {
-		if (dict.find(v[i]) != dict.end())
+		if (dict.find(i) != dict.end())
 			curStr = dict[v[i]];
 		else
 			curStr = prevStr + prevStr[0];
-		//curStr = prevStr[0] + prevStr;
 		dict[dict.size()] = prevStr + curStr[0];
 		s += curStr;
 		prevStr = curStr;
