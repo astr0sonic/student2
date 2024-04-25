@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> compress(const string& text) {
+vector<int> LZWcompress(const string& text) {
 	map<string, int> dict;
 	for (int i = 0; i < 256; i++)
 		dict[string(1, static_cast<char>(i))] = i;
@@ -20,23 +20,30 @@ vector<int> compress(const string& text) {
 			bufer = { text[i] };
 		}
 	}
-	v.push_back(dict[{text[text.size() - 1]}]);
+	//for (auto f : dict) {
+	//	if (f.second == 265)
+	//		cout << f.first << " " << f.second << endl;
+	//}
+	/*cout << bufer << endl;
+	cout << bufer + string(1, text[text.size() - 1]) << endl;*/
+	v.push_back(dict[bufer]);
 	return v;
 }
 
-string decompress(const vector<int>& v) {
+string LZWdecompress(const vector<int>& v) {
 	map<int, string> dict;
 	for (int i = 0; i < 256; i++) {
 		dict[i] = string(1, static_cast<char>(i));
 	}
 	string s = dict[v[0]];
-	string curStr = dict[v[0]];
-	string prevStr = "";
+	string curStr = "";
+	string prevStr = dict[v[0]];
 	for (int i = 1; i < v.size(); i++) {
-		if (dict.find(i) != dict.end())
+		if (dict.find(v[i]) != dict.end())
 			curStr = dict[v[i]];
 		else
 			curStr = prevStr + prevStr[0];
+		//curStr = prevStr[0] + prevStr;
 		dict[dict.size()] = prevStr + curStr[0];
 		s += curStr;
 		prevStr = curStr;
