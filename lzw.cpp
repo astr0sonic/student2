@@ -33,7 +33,7 @@ string decompress(const vector<int>& v) {
 	string curStr = "";
 	string prevStr = dict[v[0]];
 	for (int i = 1; i < v.size(); i++) {
-		if (dict.find(i) != dict.end())
+		if (dict.find(v[i]) != dict.end())
 			curStr = dict[v[i]];
 		else
 			curStr = prevStr + prevStr[0];
