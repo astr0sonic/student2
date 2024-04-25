@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<int> LZWcompress(const string& text) {
+vector<int> compress(const string& text) {
 	map<string, int> dict;
 	for (int i = 0; i < 256; i++)
 		dict[string(1, static_cast<char>(i))] = i;
@@ -24,7 +24,7 @@ vector<int> LZWcompress(const string& text) {
 	return v;
 }
 
-string LZWdecompress(const vector<int>& v) {
+string decompress(const vector<int>& v) {
 	map<int, string> dict;
 	for (int i = 0; i < 256; i++) {
 		dict[i] = string(1, static_cast<char>(i));
