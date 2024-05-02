@@ -17,7 +17,8 @@ int main(int argc, char** argv) {
     bool isDecoding = static_cast<int>(inputFileName[len - 5]) - static_cast<int>('0') >= 4;
     if (isDecoding) {
         result = testDecode(inputFileName, outputFileName);
-    } else {
+    }
+    else {
         result = testEncode(inputFileName, outputFileName);
     }
 
