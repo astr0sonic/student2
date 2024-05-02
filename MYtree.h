@@ -49,7 +49,6 @@ public:
 		for (char c : text)
 			array[c]++;
 		for (int i = 0; i < 256; i++)
-			//for (int i = 255; i>= 0; i--)
 			if (array[i]) {
 				Node* n = new Node(i, array[i]);
 				pq.push(n);
