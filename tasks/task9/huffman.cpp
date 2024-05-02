@@ -1,11 +1,29 @@
 #include "huffman.h"
+#include "MYtree.h"
+
+using namespace std;
 
 std::string encode(const std::string& text) {
-    std::string encoded = "";
-    return encoded;
+	Tree t(text);
+	string s = "";
+	auto m = t.getCodeFromTree();
+	for (auto c : text)
+		s += m[c];
+	return s;
 }
 
 std::string decode(const std::string& encoded, std::map<char, std::string>& codes) {
-    std::string decoded = "";
-    return decoded;
+	string s = "";
+	string ans = "";
+	map<string, char> NORMcodes;
+	for (auto f : codes)
+		NORMcodes[f.second] = f.first;
+	for (int i = 0; i < encoded.size(); i++) {
+		s += encoded[i];
+		if (NORMcodes.find(s) != NORMcodes.end()) {
+			ans += NORMcodes[s];
+			s = "";
+		}
+	}
+	return ans;
 }
