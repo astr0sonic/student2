@@ -3,7 +3,7 @@
 
 using namespace std;
 
-std::string encode(const std::string& text) {
+std::string encode(const std::string& text){
 	Tree t(text);
 	string s = "";
 	auto m = t.getCodeFromTree();
